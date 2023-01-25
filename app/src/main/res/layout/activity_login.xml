@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="600dp"
         android:gravity="center"
-        android:text="Sign in or register"
+        android:text="Login"
         app:backgroundTint="#C66D6D"
         android:enabled="false"
         app:layout_constraintHorizontal_bias="0.497"

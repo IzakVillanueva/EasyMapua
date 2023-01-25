@@ -11,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 public class Login extends AppCompatActivity {
-    private Button buttonSign;
+    private Button buttonLogIn;
     private RadioGroup radGroup;
     private RadioButton radBut;
     private EditText user;
@@ -22,10 +22,10 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        buttonSign = (Button) findViewById(R.id.signIn);
+        buttonLogIn = (Button) findViewById(R.id.signIn);
         radGroup = (RadioGroup) findViewById(R.id.radioGroup);
 
-        buttonSign.setOnClickListener(new View.OnClickListener() {
+        buttonLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(radGroup.getCheckedRadioButtonId() == findViewById(R.id.StudentRbt).getId()){
@@ -47,10 +47,10 @@ public class Login extends AppCompatActivity {
         String sUser = user.getText().toString();
         String sPassword = user.getText().toString();
 
-        buttonSign = (Button) findViewById(R.id.signIn);
+        buttonLogIn = (Button) findViewById(R.id.signIn);
 
         if(!sUser.matches("") && !sPassword.matches("")){
-            buttonSign.setEnabled(true);
+            buttonLogIn.setEnabled(true);
         }
     }
 }
