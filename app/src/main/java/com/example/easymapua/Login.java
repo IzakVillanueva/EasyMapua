@@ -10,19 +10,17 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     private Button buttonSign;
     private RadioGroup radGroup;
     private RadioButton radBut;
     private EditText user;
     private EditText password;
 
-    private String Student = "213";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         buttonSign = (Button) findViewById(R.id.signIn);
         radGroup = (RadioGroup) findViewById(R.id.radioGroup);
@@ -31,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(radGroup.getCheckedRadioButtonId() == findViewById(R.id.StudentRbt).getId()){
-                    startActivity(new Intent(MainActivity.this, StudentNav.class));
+                    startActivity(new Intent(Login.this, StudentNav.class));
                 }
                 else if(radGroup.getCheckedRadioButtonId() == findViewById(R.id.ProfessorRbt).getId()){
-                    startActivity(new Intent(MainActivity.this, ProfessorNav.class));
+                    startActivity(new Intent(Login.this, ProfessorNav.class));
                 }
                 else if(radGroup.getCheckedRadioButtonId() == findViewById(R.id.VendorRbt).getId()){
-                    startActivity(new Intent(MainActivity.this, VendorNav.class));
+                    startActivity(new Intent(Login.this, VendorNav.class));
                 }
             }
         });
