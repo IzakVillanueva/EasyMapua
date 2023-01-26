@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    public void onRadioButtonClicked(View view) {
+    /*public void onRadioButtonClicked(View view) {
         user = (EditText) findViewById(R.id.loginEdit);
         password = (EditText) findViewById(R.id.editTextPassword);
         String sUser = user.getText().toString();
@@ -41,5 +41,5 @@ public class Login extends AppCompatActivity {
         if(!sUser.matches("") && !sPassword.matches("")){
             buttonLogIn.setEnabled(true);
         }
-    }
+    }*/
 }
