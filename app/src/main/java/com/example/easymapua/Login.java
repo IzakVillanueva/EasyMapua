@@ -70,12 +70,30 @@ public class Login extends AppCompatActivity {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
-                                    if(result.equals("Login Success")){ //==========================================add if for classification
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                        //Toast.makeText(getApplicationContext(),classification,Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), StudentNav.class);
-                                        startActivity(intent);
-                                        finish();
+                                    String classification = "";
+                                    String loginMsg = "";
+                                    try {
+                                        JSONObject jsonObject = new JSONObject(result);
+                                        loginMsg = jsonObject.getString("loginMessage");
+                                        classification = jsonObject.getString("classification");
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                    if(loginMsg.equals("Login Success")){ //==========================================add if for classification
+                                        Toast.makeText(getApplicationContext(),loginMsg,Toast.LENGTH_SHORT).show();
+                                        if(classification.equals("Student")){
+                                            startActivity(new Intent(Login.this, StudentNav.class));
+                                            finish();
+                                        }
+                                        else if(classification.equals("Professor")){
+                                            startActivity(new Intent(Login.this, ProfessorNav.class));
+                                            finish();
+                                        }
+                                        else if(classification.equals("Vendor")){
+                                            startActivity(new Intent(Login.this, VendorNav.class));
+                                            finish();
+                                        }
                                     }
                                     else{
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
