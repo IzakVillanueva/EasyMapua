@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Student"
+        android:text="@string/student"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:text="Rate"
+                android:text="@string/rate"
                 android:layout_margin="5dp"/>
         </RelativeLayout>
         <RelativeLayout
@@ -44,7 +44,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:text="Schedule"
+                android:text="@string/schedule"
                 android:layout_margin="5dp"/>
         </RelativeLayout>
     </LinearLayout>
@@ -64,7 +64,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:text="Menu"
+                android:text="@string/menu"
                 android:layout_margin="5dp"/>
         </RelativeLayout>
         <RelativeLayout
@@ -75,7 +75,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:text="Consultation"
+                android:text="@string/consultation"
                 android:layout_margin="5dp"/>
         </RelativeLayout>
     </LinearLayout>

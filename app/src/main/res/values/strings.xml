@@ -9,4 +9,8 @@
     <string name="professor">Professor</string>
     <string name="vendor">Vendor</string>
     <string name="already_have_an_account_sign_in">Already have an account? Sign in.</string>
+    <string name="rate">Rate</string>
+    <string name="schedule">Schedule</string>
+    <string name="menu">Menu</string>
+    <string name="consultation">Consultation</string>
 </resources>
