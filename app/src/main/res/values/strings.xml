@@ -8,4 +8,5 @@
     <string name="student">Student</string>
     <string name="professor">Professor</string>
     <string name="vendor">Vendor</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign in.</string>
 </resources>
