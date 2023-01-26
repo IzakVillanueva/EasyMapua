@@ -13,16 +13,18 @@
         android:theme="@style/Theme.EasyMapua">
         <activity android:name=".Register"
             android:theme="@style/Theme.Design.Light.NoActionBar">
+        </activity>
+        <activity android:name=".VendorNav" />
+        <activity android:name=".ProfessorNav" />
+        <activity android:name=".StudentNav" />
+        <activity android:name=".Login"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VendorNav" />
-        <activity android:name=".ProfessorNav" />
-        <activity android:name=".StudentNav" />
-        <activity android:name=".Login"/>
     </application>
 
 </manifest>

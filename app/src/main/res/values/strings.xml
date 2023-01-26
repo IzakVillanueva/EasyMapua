@@ -13,4 +13,5 @@
     <string name="schedule">Schedule</string>
     <string name="menu">Menu</string>
     <string name="consultation">Consultation</string>
+    <string name="create_a_new_account_sign_up">Create a new account? Sign up</string>
 </resources>

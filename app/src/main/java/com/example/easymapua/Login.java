@@ -16,8 +16,11 @@ import android.widget.Toast;
 
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Login extends AppCompatActivity {
-    private Button buttonLogIn;
+    private Button buttonLogIn, buttonReg;
     private EditText userEdit;
     private EditText passwordEdit;
     private ProgressBar progressBar;
@@ -31,6 +34,14 @@ public class Login extends AppCompatActivity {
         userEdit = findViewById(R.id.loginEdit);
         passwordEdit = findViewById(R.id.editTextPassword);
         progressBar = findViewById(R.id.progress);
+        buttonReg = findViewById(R.id.buttonRegister);
+
+        buttonReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this, Register.class));
+            }
+        });
 
         buttonLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +72,8 @@ public class Login extends AppCompatActivity {
                                     String result = putData.getResult();
                                     if(result.equals("Login Success")){ //==========================================add if for classification
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                                        //Toast.makeText(getApplicationContext(),classification,Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getApplicationContext(), StudentNav.class);
                                         startActivity(intent);
                                         finish();
                                     }
