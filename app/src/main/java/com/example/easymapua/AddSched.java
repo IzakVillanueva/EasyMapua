@@ -78,7 +78,7 @@ public class AddSched extends AppCompatActivity {
                                     String result = putData.getResult();
                                     if(result.equals("Schedule Successfully Added")){
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                                        Intent intent = new Intent(getApplicationContext(), ProfessorNav.class);
                                         startActivity(intent);
                                         finish();
                                     }
@@ -93,6 +93,13 @@ public class AddSched extends AppCompatActivity {
                 else{
                     Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddSched.this, ProfessorNav.class));
             }
         });
     }
