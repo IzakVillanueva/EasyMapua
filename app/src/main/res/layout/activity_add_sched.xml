@@ -20,6 +20,7 @@
         app:layout_constraintVertical_bias="0.698" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -36,9 +37,9 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_edit_text"
             android:ems="10"
+            android:hint="@string/name"
             android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:hint="@string/name" />
+            android:paddingLeft="10dp" />
 
         <EditText
             android:id="@+id/editTextCourse"
@@ -47,9 +48,9 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_edit_text"
             android:ems="10"
+            android:hint="@string/course_code"
             android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:hint="@string/course_code" />
+            android:paddingLeft="10dp" />
 
         <EditText
             android:id="@+id/editTextTask"
@@ -58,9 +59,9 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_edit_text"
             android:ems="10"
+            android:hint="@string/task"
             android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:hint="@string/task" />
+            android:paddingLeft="10dp" />
 
         <EditText
             android:id="@+id/editTextDate"
@@ -68,10 +69,12 @@
             android:layout_height="48dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_edit_text"
+            android:cursorVisible="false"
+            android:focusable="false"
             android:ems="10"
+            android:hint="@string/date"
             android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:hint="@string/date" />
+            android:paddingLeft="10dp" />
 
         <EditText
             android:id="@+id/editTextStart"
@@ -79,10 +82,12 @@
             android:layout_height="48dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_edit_text"
+            android:cursorVisible="false"
+            android:focusable="false"
             android:ems="10"
+            android:hint="@string/start_time"
             android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:hint="@string/start_time" />
+            android:paddingLeft="10dp" />
 
         <EditText
             android:id="@+id/editTextEnd"
@@ -90,10 +95,12 @@
             android:layout_height="48dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_edit_text"
+            android:cursorVisible="false"
+            android:focusable="false"
             android:ems="10"
+            android:hint="@string/end_time"
             android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:hint="@string/end_time" />
+            android:paddingLeft="10dp" />
 
         <EditText
             android:id="@+id/editTextRoom"
@@ -102,23 +109,50 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_edit_text"
             android:ems="10"
+            android:hint="@string/room"
             android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:hint="@string/room" />
+            android:paddingLeft="10dp" />
 
     </LinearLayout>
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:datePickerMode="calendar"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <Button
+        android:id="@+id/buttonClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_date"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
         android:text="@string/schedule"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.333" />
 
     <Button
         android:id="@+id/buttonAdd"
@@ -150,6 +184,5 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
