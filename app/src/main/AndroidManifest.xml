@@ -12,10 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EasyMapua"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddSched"></activity>
+        <activity android:name=".AddRate"></activity>
+        <activity android:name=".AddFood" />
+        <activity android:name=".AddSched" />
         <activity
             android:name=".Register"
-            android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity android:name=".VendorNav" />
         <activity android:name=".ProfessorNav" />
         <activity android:name=".StudentNav" />
