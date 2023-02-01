@@ -2,22 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.easymapua">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.EasyMapua">
-        <activity android:name=".Register"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
-        </activity>
+        android:theme="@style/Theme.EasyMapua"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".AddSched"></activity>
+        <activity
+            android:name=".Register"
+            android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
         <activity android:name=".VendorNav" />
         <activity android:name=".ProfessorNav" />
         <activity android:name=".StudentNav" />
-        <activity android:name=".Login"
+        <activity
+            android:name=".Login"
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
