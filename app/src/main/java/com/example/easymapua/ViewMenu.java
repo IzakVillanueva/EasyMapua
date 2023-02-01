@@ -53,11 +53,12 @@ public class ViewMenu extends AppCompatActivity {
                             if(putData.onComplete()){
                                 String result = putData.getResult();
                                 JSONArray jsonArray;
-                                /*try {
+                                clearTable();
+                                try {
                                     jsonArray = new JSONArray(result.toString());
                                     for(int i = 0; i < jsonArray.length(); i++){
                                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                        //create table
+                                        //populate table
                                         TableRow row = new TableRow(ViewMenu.this);
 
                                         TextView foodData = new TextView(ViewMenu.this);
@@ -65,29 +66,24 @@ public class ViewMenu extends AppCompatActivity {
                                         row.addView(foodData);
 
                                         TextView priceData = new TextView(ViewMenu.this);
-                                        foodData.setText(jsonObject.getString("price"));
-                                        row.addView(foodData);
+                                        priceData.setText("PHP " +  jsonObject.getString("price") + ".00");
+                                        row.addView(priceData);
 
                                         tbl.addView(row);
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
-                                }*/
-                                /*TableRow row = new TableRow(ViewMenu.this);
-
-                                TextView foodData = new TextView(ViewMenu.this);
-                                foodData.setText("hey");
-                                row.addView(foodData);
-
-                                TextView priceData = new TextView(ViewMenu.this);
-                                foodData.setText("hoytsen");
-                                row.addView(foodData);
-                                tbl.addView(row);*/
+                                }
                             }
                         }
                     }
                 });
             }
         });
+    }
+
+    private void clearTable(){
+        tbl = findViewById(R.id.table_menu);
+        tbl.removeViews(1, tbl.getChildCount()-1);
     }
 }
