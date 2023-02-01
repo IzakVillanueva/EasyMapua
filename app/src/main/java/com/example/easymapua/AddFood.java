@@ -82,7 +82,7 @@ public class AddFood extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddFood.this, ProfessorNav.class));
+                startActivity(new Intent(AddFood.this, VendorNav.class));
             }
         });
     }
