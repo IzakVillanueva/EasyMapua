@@ -45,15 +45,6 @@ public class Register extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*if(radGroup.getCheckedRadioButtonId() == findViewById(R.id.StudentRbt).getId()){
-                    startActivity(new Intent(Register.this, StudentNav.class));
-                }
-                else if(radGroup.getCheckedRadioButtonId() == findViewById(R.id.ProfessorRbt).getId()){
-                    startActivity(new Intent(Register.this, ProfessorNav.class));
-                }
-                else if(radGroup.getCheckedRadioButtonId() == findViewById(R.id.VendorRbt).getId()){
-                    startActivity(new Intent(Register.this, VendorNav.class));
-                }*/
 
                 selectedRadBut = (RadioButton) findViewById(radGroup.getCheckedRadioButtonId());
                 String classification = String.valueOf(selectedRadBut.getText());
