@@ -4,6 +4,143 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFEFEA"
     tools:context=".AddSched">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="341dp"
+        android:layout_height="625dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.698" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view">
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="304dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:hint="@string/name" />
+
+        <EditText
+            android:id="@+id/editTextCourse"
+            android:layout_width="304dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:hint="@string/course_code" />
+
+        <EditText
+            android:id="@+id/editTextTask"
+            android:layout_width="304dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:hint="@string/task" />
+
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="304dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:hint="@string/date" />
+
+        <EditText
+            android:id="@+id/editTextStart"
+            android:layout_width="304dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:hint="@string/start_time" />
+
+        <EditText
+            android:id="@+id/editTextEnd"
+            android:layout_width="304dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:hint="@string/end_time" />
+
+        <EditText
+            android:id="@+id/editTextRoom"
+            android:layout_width="304dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:hint="@string/room" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="@string/schedule"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:text="@string/add"
+        app:backgroundTint="#5667FD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCancel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:text="@string/cancel"
+        app:backgroundTint="#5667FD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonAdd" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
