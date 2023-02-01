@@ -28,7 +28,5 @@
     <string name="select_date">Select Date</string>
     <string name="store">Store</string>
     <string name="food">Food</string>
-    <string name="food">Food</string>
-    <string name="store">Store</string>
     <string name="price">Price</string>
 </resources>
