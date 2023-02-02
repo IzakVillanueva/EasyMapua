@@ -12,6 +12,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
@@ -39,7 +40,7 @@ public class ViewRating extends AppCompatActivity {
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String item = parent.getItemAtPosition(position).toString();
+                String selected = parent.getItemAtPosition(position).toString();
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
@@ -47,13 +48,13 @@ public class ViewRating extends AppCompatActivity {
                         String[] field = new String[1];
                         field[0] = "store";
                         String[] data = new String[1];
-                        data[0] = item;
+                        data[0] = selected;
                         PutData putData = new PutData("http://192.168.1.7/LoginRegister/viewratings.php", "POST", field, data);
                         if(putData.startPut()){
                             if(putData.onComplete()){
                                 String result = putData.getResult();
                                 JSONArray jsonArray;
-                                clearTable();
+                                //clearTable();
                                 try {
                                     jsonArray = new JSONArray(result.toString());
                                     for(int i = 0; i < jsonArray.length(); i++){
@@ -62,37 +63,39 @@ public class ViewRating extends AppCompatActivity {
                                         TableRow row1 = new TableRow(ViewRating.this);
 
                                         TextView user = new TextView(ViewRating.this);
-                                        user.setTextAppearance(getApplicationContext(), R.style.menuTableText);
-                                        user.setText(jsonObject.getString("username"));
+                                        user.setTextAppearance(getApplicationContext(), R.style.userRateTbl);
+                                        user.setText("by: " + jsonObject.getString("username") +
+                                                " (" + jsonObject.getString("classification") + ")  " +
+                                                "on: " + jsonObject.getString("store"));
                                         row1.addView(user);
 
-                                        TextView classData = new TextView(ViewRating.this);
-                                        classData.setTextAppearance(getApplicationContext(), R.style.menuTableText);
+                                        /*TextView classData = new TextView(ViewRating.this);
+                                        classData.setTextAppearance(getApplicationContext(), R.style.classRateTbl);
                                         classData.setText("(" + jsonObject.getString("classification") + ")");
                                         row1.addView(classData);
 
                                         TextView storeD = new TextView(ViewRating.this);
-                                        storeD.setTextAppearance(getApplicationContext(), R.style.menuTableText);
+                                        storeD.setTextAppearance(getApplicationContext(), R.style.storeRateTbl);
                                         storeD.setText("on: " + jsonObject.getString("store"));
-                                        row1.addView(storeD);
+                                        row1.addView(storeD);*/
 
                                         tbl.addView(row1);
 
                                         TableRow row2 = new TableRow(ViewRating.this);
 
                                         TextView sub = new TextView(ViewRating.this);
-                                        sub.setTextAppearance(getApplicationContext(), R.style.menuTableText);
+                                        sub.setTextAppearance(getApplicationContext(), R.style.submsgRateTbl);
                                         sub.setText(jsonObject.getString("subject"));
-                                        row1.addView(sub);
+                                        row2.addView(sub);
 
                                         tbl.addView(row2);
 
                                         TableRow row3 = new TableRow(ViewRating.this);
 
                                         TextView msg = new TextView(ViewRating.this);
-                                        msg.setTextAppearance(getApplicationContext(), R.style.menuTableText);
+                                        msg.setTextAppearance(getApplicationContext(), R.style.submsgRateTbl);
                                         msg.setText(jsonObject.getString("message"));
-                                        row1.addView(sub);
+                                        row3.addView(msg);
 
                                         tbl.addView(row3);
                                     }
@@ -103,12 +106,48 @@ public class ViewRating extends AppCompatActivity {
                         }
                     }
                 });
+                /*TableRow row1 = new TableRow(ViewRating.this);
+
+                TextView user = new TextView(ViewRating.this);
+                user.setTextAppearance(getApplicationContext(), R.style.userRateTbl);
+                user.setText("By: username");
+                row1.addView(user);
+
+                TextView classData = new TextView(ViewRating.this);
+                classData.setTextAppearance(getApplicationContext(), R.style.classRateTbl);
+                classData.setText("(" + "class" + ")");
+                row1.addView(classData);
+
+                TextView storeD = new TextView(ViewRating.this);
+                storeD.setTextAppearance(getApplicationContext(), R.style.storeRateTbl);
+                storeD.setText("on: " + "Jaymin's");
+                row1.addView(storeD);
+
+                tbl.addView(row1);
+
+                TableRow row2 = new TableRow(ViewRating.this);
+
+                TextView sub = new TextView(ViewRating.this);
+                sub.setTextAppearance(getApplicationContext(), R.style.submsgRateTbl);
+                sub.setText("subject asdasdasdasdadasda");
+                row2.addView(sub);
+
+                tbl.addView(row2);
+
+                TableRow row3 = new TableRow(ViewRating.this);
+
+                TextView msg = new TextView(ViewRating.this);
+                msg.setTextAppearance(getApplicationContext(), R.style.submsgRateTbl);
+                msg.setText("messagfas dasdasd adadsdas dadadad dasdseaas sdfgdsg sdf gdassdasdad ");
+                row3.addView(msg);
+
+                tbl.addView(row3);*/
             }
         });
     }
 
     private void clearTable(){
         tbl = findViewById(R.id.table_rating);
-        tbl.removeViews(1, tbl.getChildCount()-1);
+        tbl.removeViews(0, tbl.getChildCount()-1);
     }
 }
