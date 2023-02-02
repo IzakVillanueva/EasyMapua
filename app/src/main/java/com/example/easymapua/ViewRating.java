@@ -55,7 +55,7 @@ public class ViewRating extends AppCompatActivity {
                             if(putData.onComplete()){
                                 String result = putData.getResult();
                                 JSONArray jsonArray;
-                                //clearTable();
+                                clearTable();
                                 try {
                                     jsonArray = new JSONArray(result.toString());
                                     for(int i = 0; i < jsonArray.length(); i++){
@@ -68,6 +68,8 @@ public class ViewRating extends AppCompatActivity {
                                         user.setText("By: " + jsonObject.getString("username") +
                                                 " (" + jsonObject.getString("classification") + "),  " +
                                                 "on: " + jsonObject.getString("store"));
+                                        user.setSingleLine(false);
+                                        user.setWidth(TableRow.LayoutParams.WRAP_CONTENT);
                                         row1.addView(user);
 
                                         tbl.addView(row1);
@@ -108,48 +110,17 @@ public class ViewRating extends AppCompatActivity {
                         }
                     }
                 });
-                /*TableRow row1 = new TableRow(ViewRating.this);
-
-                TextView user = new TextView(ViewRating.this);
-                user.setTextAppearance(getApplicationContext(), R.style.userRateTbl);
-                user.setText("By: username");
-                row1.addView(user);
-
-                TextView classData = new TextView(ViewRating.this);
-                classData.setTextAppearance(getApplicationContext(), R.style.classRateTbl);
-                classData.setText("(" + "class" + ")");
-                row1.addView(classData);
-
-                TextView storeD = new TextView(ViewRating.this);
-                storeD.setTextAppearance(getApplicationContext(), R.style.storeRateTbl);
-                storeD.setText("on: " + "Jaymin's");
-                row1.addView(storeD);
-
-                tbl.addView(row1);
-
-                TableRow row2 = new TableRow(ViewRating.this);
-
-                TextView sub = new TextView(ViewRating.this);
-                sub.setTextAppearance(getApplicationContext(), R.style.submsgRateTbl);
-                sub.setText("subject asdasdasdasdadasda");
-                row2.addView(sub);
-
-                tbl.addView(row2);
-
-                TableRow row3 = new TableRow(ViewRating.this);
-
-                TextView msg = new TextView(ViewRating.this);
-                msg.setTextAppearance(getApplicationContext(), R.style.submsgRateTbl);
-                msg.setText("messagfas dasdasd adadsdas dadadad dasdseaas sdfgdsg sdf gdassdasdad ");
-                row3.addView(msg);
-
-                tbl.addView(row3);*/
             }
         });
     }
 
     private void clearTable(){
         tbl = findViewById(R.id.table_rating);
-        tbl.removeViews(0, tbl.getChildCount()-1);
+        if(!(tbl.getChildCount() <= 1)){
+            tbl.removeViews(0, tbl.getChildCount()-1);
+        }
+        else if(tbl.getChildCount() == 1){
+            tbl.removeViews(0, 1);
+        }
     }
 }

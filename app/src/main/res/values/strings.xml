@@ -37,4 +37,6 @@
     <string name="add_rating">Add Rating</string>
     <string name="select_store_to_view_ratings">Select Store to View Ratings</string>
     <string name="view_ratings">View Ratings</string>
+    <string name="load_schedule">Load Schedule</string>
+    <string name="show_consulation">Show Consulation</string>
 </resources>

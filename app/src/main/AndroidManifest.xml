@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EasyMapua"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ViewRating"></activity>
+        <activity android:name=".ViewSchedule"></activity>
+        <activity android:name=".ViewRating" />
         <activity android:name=".ViewMenu" />
         <activity android:name=".AddRate" />
         <activity android:name=".AddFood" />

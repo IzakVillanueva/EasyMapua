@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class StudentNav extends AppCompatActivity {
-    private Button menu, rate, viewRate;
+    private Button menu, rate, viewRate, viewSched;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class StudentNav extends AppCompatActivity {
         menu = findViewById(R.id.buttonShowMenu);
         rate = findViewById(R.id.buttonRate);
         viewRate = findViewById(R.id.buttonViewRating);
+        viewSched = findViewById(R.id.buttonViewSched);
 
         rate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +38,13 @@ public class StudentNav extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StudentNav.this, ViewRating.class));
+            }
+        });
+
+        viewSched.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StudentNav.this, ViewSchedule.class));
             }
         });
     }
