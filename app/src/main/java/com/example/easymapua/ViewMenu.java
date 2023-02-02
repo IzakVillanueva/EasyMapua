@@ -62,10 +62,12 @@ public class ViewMenu extends AppCompatActivity {
                                         TableRow row = new TableRow(ViewMenu.this);
 
                                         TextView foodData = new TextView(ViewMenu.this);
+                                        foodData.setTextAppearance(getApplicationContext(), R.style.menuTableText);
                                         foodData.setText(jsonObject.getString("food"));
                                         row.addView(foodData);
 
                                         TextView priceData = new TextView(ViewMenu.this);
+                                        priceData.setTextAppearance(getApplicationContext(), R.style.menuTableText);
                                         priceData.setText("PHP " +  jsonObject.getString("price") + ".00");
                                         row.addView(priceData);
 

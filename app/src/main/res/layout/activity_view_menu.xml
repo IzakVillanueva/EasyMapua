@@ -45,12 +45,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/food"/>
+                android:fontFamily="sans-serif-black"
+                android:text="@string/food"
+                android:textSize="25sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/price"/>
+                android:fontFamily="sans-serif-black"
+                android:text="@string/price"
+                android:textSize="25sp"/>
         </TableRow>
     </TableLayout>
 
