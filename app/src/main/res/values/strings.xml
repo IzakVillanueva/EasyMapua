@@ -23,7 +23,6 @@
     <string name="end_time">End Time</string>
     <string name="add">Add</string>
     <string name="cancel">Cancel</string>
-    <string name="add_schedule">Add Schedule</string>
     <string name="close">Close</string>
     <string name="select_date">Select Date</string>
     <string name="store">Store</string>
@@ -36,7 +35,6 @@
     <string name="select_store_to_rate">Select Store to Rate</string>
     <string name="add_rating">Add Rating</string>
     <string name="select_store_to_view_ratings">Select Store to View Ratings</string>
-    <string name="view_ratings">View Ratings</string>
     <string name="load_schedule">Load Schedule</string>
     <string name="show_consulation">Show Consulation</string>
     <string name="add_food">Add Food</string>
