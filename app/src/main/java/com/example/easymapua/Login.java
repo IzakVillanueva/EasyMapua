@@ -24,6 +24,7 @@ public class Login extends AppCompatActivity {
     private EditText userEdit;
     private EditText passwordEdit;
     private ProgressBar progressBar;
+    public static String loggedUser, loggedClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +83,8 @@ public class Login extends AppCompatActivity {
 
                                     if(loginMsg.equals("Login Success")){ //==========================================add if for classification
                                         Toast.makeText(getApplicationContext(),loginMsg,Toast.LENGTH_SHORT).show();
+                                        loggedUser = username;
+                                        loggedClass = classification;
                                         if(classification.equals("Student")){
                                             startActivity(new Intent(Login.this, StudentNav.class));
                                             finish();

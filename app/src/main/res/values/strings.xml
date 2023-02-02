@@ -30,4 +30,8 @@
     <string name="food">Food</string>
     <string name="price">Price</string>
     <string name="select_store_to_vew_menu">Select Store to Vew Menu</string>
+    <string name="subject">Subject</string>
+    <string name="write_your_message_rating_thoughts_about_the_subject">Write your message/rating/thoughts about the subject</string>
+    <string name="post">Post</string>
+    <string name="select_store_to_rate">Select Store to Rate</string>
 </resources>
