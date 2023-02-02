@@ -99,7 +99,12 @@ public class AddRate extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String a = Login.loggedClass;
-                Toast.makeText(getApplicationContext(), a, Toast.LENGTH_SHORT).show();
+                if(a.equals("Student")){
+                    startActivity(new Intent(getApplicationContext(), StudentNav.class));
+                }
+                else if(a.equals("Professor")){
+                    startActivity(new Intent(getApplicationContext(), ProfessorNav.class));
+                }
             }
         });
 
