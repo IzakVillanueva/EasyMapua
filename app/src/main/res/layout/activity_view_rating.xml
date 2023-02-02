@@ -27,19 +27,29 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TableLayout
-        android:id="@+id/table_rating"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="*"
-        android:weightSum="3"
+        android:layout_height="600dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutRate"
-        app:layout_constraintVertical_bias="0.07">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutRate">
+
+        <TableLayout
+            android:id="@+id/table_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:weightSum="3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutRate"
+            app:layout_constraintVertical_bias="0.07">
 
 
-    </TableLayout>
+        </TableLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

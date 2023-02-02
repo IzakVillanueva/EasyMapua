@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -64,28 +65,20 @@ public class ViewRating extends AppCompatActivity {
 
                                         TextView user = new TextView(ViewRating.this);
                                         user.setTextAppearance(getApplicationContext(), R.style.userRateTbl);
-                                        user.setText("by: " + jsonObject.getString("username") +
-                                                " (" + jsonObject.getString("classification") + ")  " +
+                                        user.setText("By: " + jsonObject.getString("username") +
+                                                " (" + jsonObject.getString("classification") + "),  " +
                                                 "on: " + jsonObject.getString("store"));
                                         row1.addView(user);
-
-                                        /*TextView classData = new TextView(ViewRating.this);
-                                        classData.setTextAppearance(getApplicationContext(), R.style.classRateTbl);
-                                        classData.setText("(" + jsonObject.getString("classification") + ")");
-                                        row1.addView(classData);
-
-                                        TextView storeD = new TextView(ViewRating.this);
-                                        storeD.setTextAppearance(getApplicationContext(), R.style.storeRateTbl);
-                                        storeD.setText("on: " + jsonObject.getString("store"));
-                                        row1.addView(storeD);*/
 
                                         tbl.addView(row1);
 
                                         TableRow row2 = new TableRow(ViewRating.this);
 
                                         TextView sub = new TextView(ViewRating.this);
-                                        sub.setTextAppearance(getApplicationContext(), R.style.submsgRateTbl);
-                                        sub.setText(jsonObject.getString("subject"));
+                                        sub.setTextAppearance(getApplicationContext(), R.style.subRateTbl);
+                                        sub.setText("Subject: " + jsonObject.getString("subject"));
+                                        sub.setSingleLine(false);
+                                        sub.setWidth(TableRow.LayoutParams.WRAP_CONTENT);
                                         row2.addView(sub);
 
                                         tbl.addView(row2);
@@ -93,11 +86,20 @@ public class ViewRating extends AppCompatActivity {
                                         TableRow row3 = new TableRow(ViewRating.this);
 
                                         TextView msg = new TextView(ViewRating.this);
-                                        msg.setTextAppearance(getApplicationContext(), R.style.submsgRateTbl);
+                                        msg.setTextAppearance(getApplicationContext(), R.style.msgRateTbl);
                                         msg.setText(jsonObject.getString("message"));
+                                        msg.setSingleLine(false);
+                                        msg.setWidth(TableRow.LayoutParams.WRAP_CONTENT);
                                         row3.addView(msg);
 
                                         tbl.addView(row3);
+
+                                        TableRow row4 = new TableRow(ViewRating.this);
+                                        TextView blank = new TextView(ViewRating.this);
+                                        blank.setText("");
+                                        row4.addView(blank);
+
+                                        tbl.addView(row4);
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
