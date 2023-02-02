@@ -21,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ViewMenu extends AppCompatActivity {
-    String[] store = {"test", "tite", "hooooy"};
+    String[] store = {"Jaymin's Kitchen", "Varda Burgers", "Food Hall"};
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapterItems;
     TableLayout tbl;
