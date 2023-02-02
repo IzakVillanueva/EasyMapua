@@ -81,7 +81,7 @@ public class Login extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
 
-                                    if(loginMsg.equals("Login Success")){ //==========================================add if for classification
+                                    if(loginMsg.equals("Login Success")){
                                         Toast.makeText(getApplicationContext(),loginMsg,Toast.LENGTH_SHORT).show();
                                         loggedUser = username;
                                         loggedClass = classification;

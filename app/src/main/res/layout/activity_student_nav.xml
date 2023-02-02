@@ -77,7 +77,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:text="@string/consultation"
+                android:text="@string/view_ratings"
                 android:layout_margin="5dp"/>
         </RelativeLayout>
     </LinearLayout>

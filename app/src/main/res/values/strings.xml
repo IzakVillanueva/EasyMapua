@@ -35,4 +35,6 @@
     <string name="post">Post</string>
     <string name="select_store_to_rate">Select Store to Rate</string>
     <string name="add_rating">Add Rating</string>
+    <string name="select_store_to_view_ratings">Select Store to View Ratings</string>
+    <string name="view_ratings">View Ratings</string>
 </resources>
