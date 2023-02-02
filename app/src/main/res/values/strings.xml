@@ -39,4 +39,9 @@
     <string name="view_ratings">View Ratings</string>
     <string name="load_schedule">Load Schedule</string>
     <string name="show_consulation">Show Consulation</string>
+    <string name="add_food">Add Food</string>
+    <string name="post_rating">Post Rating</string>
+    <string name="add_schedule">Add Schedule</string>
+    <string name="view_menu">View Menu</string>
+    <string name="view_ratings">View Ratings</string>
 </resources>

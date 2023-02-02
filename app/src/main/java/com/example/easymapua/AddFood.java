@@ -61,9 +61,14 @@ public class AddFood extends AppCompatActivity {
                                     String result = putData.getResult();
                                     if(result.equals("Successfully added food")){
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), VendorNav.class);
-                                        startActivity(intent);
-                                        finish();
+                                        if(Login.loggedClass.equals("Vendor")){
+                                            startActivity(new Intent(getApplicationContext(), VendorNav.class));
+                                            finish();
+                                        }
+                                        else if(Login.loggedClass.equals("Admin")){
+                                            startActivity(new Intent(getApplicationContext(), AdminNav.class));
+                                            finish();
+                                        }
                                     }
                                     else{
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
