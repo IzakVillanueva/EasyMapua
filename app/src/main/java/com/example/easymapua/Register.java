@@ -1,11 +1,15 @@
 package com.example.easymapua;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -93,6 +97,13 @@ public class Register extends AppCompatActivity {
                 }
             }
         });
+
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE},
+                PackageManager.PERMISSION_GRANTED);
+
+
     }
 
     public void onRadioButtonClicked(View view) {
@@ -106,5 +117,19 @@ public class Register extends AppCompatActivity {
         if(!sUser.matches("") && !sPassword.matches("")){
             buttonRegister.setEnabled(true);
         }
+    }
+
+    public void buttonOpenFile1(View view){
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Downloads.EXTERNAL_CONTENT_URI);
+        intent.setType("*/*");
+        this.startActivity(intent);
+
+    }
+
+    public void buttonOpenFile2(View view){
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Downloads.EXTERNAL_CONTENT_URI);
+        intent.setType("*/*");
+        this.startActivity(intent);
+
     }
 }
