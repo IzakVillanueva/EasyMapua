@@ -133,10 +133,18 @@ public class AddSched extends AppCompatActivity {
                                     progressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
                                     if(result.equals("Schedule Successfully Added")){
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), ProfessorNav.class);
-                                        startActivity(intent);
-                                        finish();
+                                        if(Login.loggedClass.equals("Professor")){
+                                            Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(getApplicationContext(), ProfessorNav.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                        else if(Login.loggedClass.equals("Admin")){
+                                            Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(getApplicationContext(), AdminNav.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
                                     }
                                     else{
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
@@ -155,7 +163,12 @@ public class AddSched extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddSched.this, ProfessorNav.class));
+                if(Login.loggedClass.equals("Professor")){
+                    startActivity(new Intent(AddSched.this, ProfessorNav.class));
+                }
+                else if(Login.loggedClass.equals("Admin")){
+                    startActivity(new Intent(AddSched.this, AdminNav.class));
+                }
             }
         });
     }

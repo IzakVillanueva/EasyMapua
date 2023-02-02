@@ -87,7 +87,12 @@ public class AddFood extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddFood.this, VendorNav.class));
+                if(Login.loggedClass.equals("Vendor")){
+                    startActivity(new Intent(getApplicationContext(), VendorNav.class));
+                }
+                else if(Login.loggedClass.equals("Admin")){
+                    startActivity(new Intent(getApplicationContext(), AdminNav.class));
+                }
             }
         });
     }

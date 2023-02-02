@@ -97,6 +97,10 @@ public class Login extends AppCompatActivity {
                                             startActivity(new Intent(Login.this, VendorNav.class));
                                             finish();
                                         }
+                                        else if(classification.equals("Admin")){
+                                            startActivity(new Intent(Login.this, AdminNav.class));
+                                            finish();
+                                        }
                                     }
                                     else{
                                         Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();

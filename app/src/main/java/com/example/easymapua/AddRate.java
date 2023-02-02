@@ -70,7 +70,6 @@ public class AddRate extends AppCompatActivity {
                                     prog.setVisibility(View.GONE);
                                     String result = putData.getResult();
                                     if (result.equals("Successfully added rating")) {
-                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                                         if(Login.loggedClass.equals("Student")){
                                             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(getApplicationContext(), StudentNav.class));
@@ -79,6 +78,11 @@ public class AddRate extends AppCompatActivity {
                                         else if(Login.loggedClass.equals("Professor")){
                                             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(getApplicationContext(), ProfessorNav.class));
+                                            finish();
+                                        }
+                                        else if(Login.loggedClass.equals("Admin")){
+                                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(getApplicationContext(), AdminNav.class));
                                             finish();
                                         }
                                     } else {
@@ -104,6 +108,9 @@ public class AddRate extends AppCompatActivity {
                 }
                 else if(a.equals("Professor")){
                     startActivity(new Intent(getApplicationContext(), ProfessorNav.class));
+                }
+                else if(a.equals("Admin")){
+                    startActivity(new Intent(getApplicationContext(), AdminNav.class));
                 }
             }
         });
