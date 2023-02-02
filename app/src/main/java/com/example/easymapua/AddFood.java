@@ -19,8 +19,6 @@ public class AddFood extends AppCompatActivity {
     private Button add, cancel;
     private EditText storeT, foodT, priceT;
     ProgressBar prog;
-    private ImageView ex;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +31,6 @@ public class AddFood extends AppCompatActivity {
         foodT = findViewById(R.id.editTextFood);
         priceT = findViewById(R.id.editTextPrice);
         prog = findViewById(R.id.progressBarFood);
-        ex = findViewById(R.id.imageViewExit);
-
-        ex.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Login.class));
-            }
-        });
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override

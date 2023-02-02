@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class AdminNav extends AppCompatActivity {
     private Button addFood, addRate, addSc, viewMen, viewRat, viewSc;
+    private ImageView ex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,14 @@ public class AdminNav extends AppCompatActivity {
         viewMen = findViewById(R.id.button4);
         viewRat = findViewById(R.id.button5);
         viewSc = findViewById(R.id.button6);
+        ex = findViewById(R.id.imageViewExit);
+
+        ex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Login.class));
+            }
+        });
 
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
