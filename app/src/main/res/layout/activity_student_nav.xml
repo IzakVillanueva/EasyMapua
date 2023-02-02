@@ -75,6 +75,7 @@
             android:layout_weight="1">
 
             <Button
+                android:id="@+id/buttonViewRating"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:text="@string/view_ratings"
