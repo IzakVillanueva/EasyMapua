@@ -3,6 +3,7 @@
     <style name="menuTableText">
         <item name="android:fontFamily">sans-serif-black</item>
         <item name="android:textSize">19sp</item>
+        <item name="android:background">#FFEFEA</item>
     </style>
 
     <style name="userRateTbl" parent="@android:style/Widget.TextView">

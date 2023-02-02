@@ -48,4 +48,6 @@
     <string name="post_a_rating">Post a Rating</string>
     <string name="view_schedule">View Schedule</string>
     <string name="admin">Admin</string>
+    <string name="sort_price">Sort Price</string>
+    <string name="sort_food">Sort Food</string>
 </resources>
