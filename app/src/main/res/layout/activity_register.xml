@@ -170,26 +170,44 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="6dp"
         android:text="Upload necessary proof:"
-        tools:layout_editor_absoluteX="213dp"
-        tools:layout_editor_absoluteY="414dp" />
+        app:layout_constraintBottom_toTopOf="@+id/addfile1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/addfile1"
         android:layout_width="131dp"
         android:layout_height="48dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginBottom="7dp"
         android:onClick="buttonOpenFile1"
-        android:text="Add file"
-        tools:layout_editor_absoluteX="227dp"
-        tools:layout_editor_absoluteY="441dp" />
+        android:text="ADD FILE"
+        app:layout_constraintBottom_toTopOf="@+id/addfile2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/addfile2"
         android:layout_width="133dp"
         android:layout_height="47dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="17dp"
         android:onClick="buttonOpenFile2"
         android:text="ADD FILE"
-        tools:layout_editor_absoluteX="227dp"
-        tools:layout_editor_absoluteY="496dp" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/addfile1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
