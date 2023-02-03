@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class ProfessorNav extends AppCompatActivity {
-    private Button add, rate, viewSc, viewMe;
+    private Button add, rate, viewSc, viewMe, viewRa;
     private ImageView ex;
 
     @Override
@@ -22,6 +22,14 @@ public class ProfessorNav extends AppCompatActivity {
         ex = findViewById(R.id.imageViewExit);
         viewSc = findViewById(R.id.buttonViewSched);
         viewMe = findViewById(R.id.buttonViewMenu);
+        viewRa = findViewById(R.id.buttonViewRating);
+
+        viewRa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ViewRating.class));
+            }
+        });
 
         viewSc.setOnClickListener(new View.OnClickListener() {
             @Override
