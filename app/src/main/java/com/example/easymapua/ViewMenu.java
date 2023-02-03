@@ -61,7 +61,7 @@ public class ViewMenu extends AppCompatActivity {
                         field[0] = "store";
                         String[] data = new String[1];
                         data[0] = item;
-                        PutData putData = new PutData("http://192.168.1.7/LoginRegister/viewmenu.php", "POST", field, data);
+                        PutData putData = new PutData("http://192.168.11.156/LoginRegister/viewmenu.php", "POST", field, data);
                         if(putData.startPut()){
                             if(putData.onComplete()){
                                 String result = putData.getResult();

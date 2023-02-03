@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class VendorNav extends AppCompatActivity {
-    private Button add, viewRate;
+    private Button add, viewRate, viewMenu;
     private ImageView ex;
 
     @Override
@@ -20,6 +20,14 @@ public class VendorNav extends AppCompatActivity {
         add = findViewById(R.id.buttonAddFood);
         viewRate = findViewById(R.id.buttonViewRate);
         ex = findViewById(R.id.imageViewExit);
+        viewMenu = findViewById(R.id.button9);
+
+        viewMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ViewMenu.class));
+            }
+        });
 
         ex.setOnClickListener(new View.OnClickListener() {
             @Override

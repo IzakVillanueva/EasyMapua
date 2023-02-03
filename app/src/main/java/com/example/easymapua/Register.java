@@ -73,7 +73,7 @@ public class Register extends AppCompatActivity {
                             data[0] = classification;
                             data[1] = username;
                             data[2] = password;
-                            PutData putData = new PutData("http://192.168.1.7/LoginRegister/signup.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.11.156/LoginRegister/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);

@@ -64,7 +64,7 @@ public class AddRate extends AppCompatActivity {
                             data[2] = storeSelected;
                             data[3] = subject;
                             data[4] = message;
-                            PutData putData = new PutData("http://192.168.1.7/LoginRegister/addrating.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.11.156/LoginRegister/addrating.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     prog.setVisibility(View.GONE);
