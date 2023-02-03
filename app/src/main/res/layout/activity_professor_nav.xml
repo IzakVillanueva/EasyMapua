@@ -33,6 +33,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.176" />
 
+    <Button
+        android:id="@+id/buttonViewSched"
+        android:layout_width="168dp"
+        android:layout_height="67dp"
+        android:text="@string/view_schedule"
+        app:backgroundTint="#454A87"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.338" />
+
+    <Button
+        android:id="@+id/buttonViewMenu"
+        android:layout_width="168dp"
+        android:layout_height="67dp"
+        android:text="@string/view_menu"
+        app:backgroundTint="#454A87"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.337" />
+
     <View
         android:id="@+id/view2"
         android:layout_width="match_parent"
