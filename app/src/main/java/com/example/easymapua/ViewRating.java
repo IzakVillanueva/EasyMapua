@@ -50,7 +50,7 @@ public class ViewRating extends AppCompatActivity {
                         field[0] = "store";
                         String[] data = new String[1];
                         data[0] = selected;
-                        PutData putData = new PutData("http://192.168.11.156/LoginRegister/viewratings.php", "POST", field, data);
+                        PutData putData = new PutData("http://192.168.1.7/LoginRegister/viewratings.php", "POST", field, data);
                         if(putData.startPut()){
                             if(putData.onComplete()){
                                 String result = putData.getResult();

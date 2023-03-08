@@ -127,7 +127,7 @@ public class AddSched extends AppCompatActivity {
                             data[4] = startTime;
                             data[5] = endTime;
                             data[6] = room;
-                            PutData putData = new PutData("http://192.168.11.156/LoginRegister/addsched.php", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.1.7/LoginRegister/addsched.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);

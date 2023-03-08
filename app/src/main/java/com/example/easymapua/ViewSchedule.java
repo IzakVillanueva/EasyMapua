@@ -45,7 +45,7 @@ public class ViewSchedule extends AppCompatActivity {
                         field[0] = "task";
                         String[] data = new String[1];
                         data[0] = "Consultation";
-                        PutData putData = new PutData("http://192.168.11.156/LoginRegister/viewsched.php", "POST", field, data);
+                        PutData putData = new PutData("http://192.168.1.7/LoginRegister/viewsched.php", "POST", field, data);
                         if(putData.startPut()){
                             if(putData.onComplete()){
                                 String result = putData.getResult();
