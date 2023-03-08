@@ -9,29 +9,37 @@
 
     <Button
         android:id="@+id/buttonAddFood"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:text="Add Food"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.188" />
 
     <Button
         android:id="@+id/buttonViewRate"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/view_ratings"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.454" />
 
     <View
         android:id="@+id/view2"
@@ -80,13 +88,13 @@
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
-        android:layout_marginBottom="448dp"
+        android:layout_marginBottom="440dp"
         android:text="@string/view_menu"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintHorizontal_bias="0.979"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

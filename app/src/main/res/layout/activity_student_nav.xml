@@ -9,59 +9,59 @@
 
     <Button
         android:id="@+id/buttonRate"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
         android:layout_margin="5dp"
         android:text="@string/rate"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintVertical_bias="0.206" />
 
     <Button
         android:id="@+id/buttonViewSched"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
         android:layout_margin="5dp"
         android:text="@string/schedule"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintVertical_bias="0.594" />
 
     <Button
         android:id="@+id/buttonShowMenu"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
         android:layout_margin="5dp"
         android:text="@string/menu"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341" />
+        app:layout_constraintVertical_bias="0.475" />
 
     <Button
         android:id="@+id/buttonViewRating"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
         android:layout_margin="5dp"
         android:text="@string/view_ratings"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341" />
+        app:layout_constraintVertical_bias="0.358" />
 
     <View
         android:id="@+id/view2"

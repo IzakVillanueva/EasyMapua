@@ -9,67 +9,72 @@
 
     <Button
         android:id="@+id/buttonAdd"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
         android:text="@string/add_schedule"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.028"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.176" />
 
     <Button
         android:id="@+id/buttonRate"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
         android:text="@string/add_rating"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintHorizontal_bias="0.026"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.295" />
 
     <Button
         android:id="@+id/buttonViewSched"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
         android:text="@string/view_schedule"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.979"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.338" />
+        app:layout_constraintVertical_bias="0.673" />
 
     <Button
         android:id="@+id/buttonViewRating"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
         android:text="@string/view_ratings"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.555" />
 
     <Button
         android:id="@+id/buttonViewMenu"
-        android:layout_width="168dp"
+        android:layout_width="220dp"
         android:layout_height="67dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/view_menu"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintVertical_bias="0.438" />
 
     <View
         android:id="@+id/view2"
