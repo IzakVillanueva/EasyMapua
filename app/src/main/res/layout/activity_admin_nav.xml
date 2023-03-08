@@ -23,23 +23,25 @@
         android:id="@+id/button2"
         android:layout_width="220dp"
         android:layout_height="67dp"
+        android:layout_marginTop="5dp"
         android:text="@string/post_rating"
         app:backgroundTint="#454A87"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="267dp" />
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="220dp"
         android:layout_height="67dp"
+        android:layout_marginTop="5dp"
         android:text="@string/add_schedule"
         app:backgroundTint="#454A87"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="190dp" />
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <Button
         android:id="@+id/button4"
