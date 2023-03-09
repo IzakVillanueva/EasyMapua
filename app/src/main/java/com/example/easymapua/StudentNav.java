@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class StudentNav extends AppCompatActivity {
-    private Button menu, rate, viewRate, viewSched;
+    private Button viewMenu, addRate, viewRate, viewSched;
     private ImageView ex;
 
     @Override
@@ -17,8 +17,8 @@ public class StudentNav extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_nav);
 
-        menu = findViewById(R.id.buttonShowMenu);
-        rate = findViewById(R.id.buttonRate);
+        viewMenu = findViewById(R.id.buttonShowMenu);
+        addRate = findViewById(R.id.buttonRate);
         viewRate = findViewById(R.id.buttonViewRating);
         viewSched = findViewById(R.id.buttonViewSched);
         ex = findViewById(R.id.imageViewExit);
@@ -30,14 +30,14 @@ public class StudentNav extends AppCompatActivity {
             }
         });
 
-        rate.setOnClickListener(new View.OnClickListener() {
+        addRate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StudentNav.this, AddRate.class));
             }
         });
 
-        menu.setOnClickListener(new View.OnClickListener() {
+        viewMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StudentNav.this, ViewMenu.class));
