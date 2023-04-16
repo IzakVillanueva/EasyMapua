@@ -1,5 +1,6 @@
 package com.example.easymapua;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -14,6 +15,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
@@ -127,7 +131,35 @@ public class Login extends AppCompatActivity {
     }
 
     private void performLogin() {
+        String email = userEdit.getText().toString();
+        String password = passwordEdit.getText().toString();
 
+        if(!email.matches(emailPattern)){
+            userEdit.setError("Invalid email entered!");
+        }
+        else if(password.isEmpty() || password.length()<6){
+            passwordEdit.setError("Invalid Password");
+        }
+        else {
+            progressBar.setVisibility(View.VISIBLE);
+
+            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        progressBar.setVisibility(View.GONE);
+                        Intent intent = new Intent(getApplicationContext(), StudentNav.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        Toast.makeText(Login.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(Login.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
     /*public void onRadioButtonClicked(View view) {
