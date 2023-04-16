@@ -1,7 +1,7 @@
 package com.example.easymapua;
 
 public class User {
-    public String username, email, classification;
+    private String username, email, classification;
 
     public User(){
 
@@ -11,5 +11,17 @@ public class User {
         this.username = username;
         this.email = email;
         this.classification = classification;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getClassification() {
+        return classification;
     }
 }
