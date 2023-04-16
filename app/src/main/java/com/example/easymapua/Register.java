@@ -103,8 +103,6 @@ public class Register extends AppCompatActivity {
                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE},
                 PackageManager.PERMISSION_GRANTED);
-
-
     }
 
     public void onRadioButtonClicked(View view) {
