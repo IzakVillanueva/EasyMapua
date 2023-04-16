@@ -1,10 +1,12 @@
 package com.example.easymapua;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -21,6 +23,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class EmailRegister extends AppCompatActivity {
     private Button buttonRegister, buttonSign;
@@ -29,8 +33,9 @@ public class EmailRegister extends AppCompatActivity {
     private RadioButton selectedRadBut;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private ProgressBar progressBar;
-    FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
     FirebaseUser mUser;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +50,10 @@ public class EmailRegister extends AppCompatActivity {
         userEdit = (EditText) findViewById(R.id.userEdit);
         radGroup = (RadioGroup) findViewById(R.id.radioGroup);
         progressBar = (ProgressBar) findViewById(R.id.progress);
+
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance("https://easymapuaauth-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
 
         buttonSign.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +68,11 @@ public class EmailRegister extends AppCompatActivity {
                 PerformAuth();
             }
         });
+
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE},
+                PackageManager.PERMISSION_GRANTED);
     }
 
     /*selectedRadBut = (RadioButton) findViewById(radGroup.getCheckedRadioButtonId());
@@ -88,20 +100,29 @@ public class EmailRegister extends AppCompatActivity {
 
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    progressBar.setVisibility(View.GONE);
+                public void onComplete(Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         User user = new User(
                                 username,
                                 email,
                                 classification
                         );
-                        //FirebaseDatabase
-                        finish();
-                        Intent intent = new Intent(getApplicationContext(), Login.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        Toast.makeText(EmailRegister.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+
+                        databaseReference.child("Users")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(Task<Void> task) {
+                                progressBar.setVisibility(View.GONE);
+                                if(task.isSuccessful()){
+                                    Intent intent = new Intent(getApplicationContext(), StudentNav.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                    Toast.makeText(EmailRegister.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            }
+                        });
                     }
                     else{
                         if(task.getException() instanceof FirebaseAuthUserCollisionException){
@@ -113,7 +134,6 @@ public class EmailRegister extends AppCompatActivity {
                     }
                 }
             });
-
         }
     }
 
