@@ -14,6 +14,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONException;
@@ -25,6 +27,9 @@ public class Login extends AppCompatActivity {
     private EditText passwordEdit;
     private ProgressBar progressBar;
     public static String loggedUser, loggedClass;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,8 @@ public class Login extends AppCompatActivity {
         passwordEdit = findViewById(R.id.editTextPassword);
         progressBar = findViewById(R.id.progress);
         buttonReg = findViewById(R.id.buttonRegister);
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +57,7 @@ public class Login extends AppCompatActivity {
                 String username = String.valueOf(userEdit.getText());
                 String password = String.valueOf(passwordEdit.getText());
 
-                if(!username.equals("") && !password.equals("")) {
+                /*if(!username.equals("") && !password.equals("")) {
                     progressBar.setVisibility(View.VISIBLE);
                     //Start ProgressBar first (Set visibility VISIBLE)
                     Handler handler = new Handler(Looper.getMainLooper());
@@ -112,9 +119,15 @@ public class Login extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
-                }
+                }*/
+
+                performLogin();
             }
         });
+    }
+
+    private void performLogin() {
+
     }
 
     /*public void onRadioButtonClicked(View view) {
