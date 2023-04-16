@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class EmailRegister extends AppCompatActivity {
@@ -96,7 +97,12 @@ public class EmailRegister extends AppCompatActivity {
                         Toast.makeText(EmailRegister.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        Toast.makeText(EmailRegister.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                            Toast.makeText(EmailRegister.this, "You are already registered", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(EmailRegister.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             });

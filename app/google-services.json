@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "881351923642",
+    "project_id": "easymapuaauth",
+    "storage_bucket": "easymapuaauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881351923642:android:550f4200123b7113812f83",
+        "android_client_info": {
+          "package_name": "com.example.easymapua"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881351923642-flspcnqbqnuqtr4r20ii79atak8h60b9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGlGf2KEyF-pEsO57oUm_hR7SnLVJmZqA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881351923642-flspcnqbqnuqtr4r20ii79atak8h60b9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
