@@ -148,6 +148,7 @@ public class Login extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         progressBar.setVisibility(View.GONE);
+                        finish();
                         Intent intent = new Intent(getApplicationContext(), StudentNav.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);

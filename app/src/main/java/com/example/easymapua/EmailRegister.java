@@ -58,7 +58,7 @@ public class EmailRegister extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PerforAuth();
+                PerformAuth();
             }
         });
     }
@@ -66,7 +66,7 @@ public class EmailRegister extends AppCompatActivity {
     /*selectedRadBut = (RadioButton) findViewById(radGroup.getCheckedRadioButtonId());
     String classification = String.valueOf(selectedRadBut.getText());*/
 
-    private void PerforAuth() {
+    private void PerformAuth() {
         String email = emailEdit.getText().toString();
         String password = passwordEdit.getText().toString();
         String confirmPass = passwordEdit2.getText().toString();
@@ -91,6 +91,13 @@ public class EmailRegister extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     progressBar.setVisibility(View.GONE);
                     if(task.isSuccessful()){
+                        User user = new User(
+                                username,
+                                email,
+                                classification
+                        );
+                        //FirebaseDatabase
+                        finish();
                         Intent intent = new Intent(getApplicationContext(), Login.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
@@ -107,6 +114,15 @@ public class EmailRegister extends AppCompatActivity {
                 }
             });
 
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(mAuth.getCurrentUser() != null){
+            FirebaseAuth.getInstance().signOut();
         }
     }
 
