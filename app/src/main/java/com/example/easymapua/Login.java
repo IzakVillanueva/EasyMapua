@@ -1,6 +1,5 @@
 package com.example.easymapua;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -154,7 +153,7 @@ public class Login extends AppCompatActivity {
 
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
+                public void onComplete(Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         progressBar.setVisibility(View.GONE);
 
