@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -22,7 +23,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class EmailRegister extends AppCompatActivity {
     private Button buttonRegister, buttonSign;
-    private EditText emailEdit, passwordEdit, passwordEdit2;
+    private EditText emailEdit, passwordEdit, passwordEdit2, userEdit;
+    private RadioGroup radGroup;
+    private RadioButton selectedRadBut;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private ProgressBar progressBar;
     FirebaseAuth mAuth;
@@ -38,6 +41,8 @@ public class EmailRegister extends AppCompatActivity {
         emailEdit = (EditText) findViewById(R.id.loginEdit);
         passwordEdit = (EditText) findViewById(R.id.editTextPassword);
         passwordEdit2 = (EditText) findViewById(R.id.editTextPassword2);
+        userEdit = (EditText) findViewById(R.id.userEdit);
+        radGroup = (RadioGroup) findViewById(R.id.radioGroup);
         progressBar = (ProgressBar) findViewById(R.id.progress);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -57,10 +62,16 @@ public class EmailRegister extends AppCompatActivity {
         });
     }
 
+    /*selectedRadBut = (RadioButton) findViewById(radGroup.getCheckedRadioButtonId());
+    String classification = String.valueOf(selectedRadBut.getText());*/
+
     private void PerforAuth() {
         String email = emailEdit.getText().toString();
         String password = passwordEdit.getText().toString();
         String confirmPass = passwordEdit2.getText().toString();
+        String username = userEdit.getText().toString();
+        selectedRadBut = (RadioButton) findViewById(radGroup.getCheckedRadioButtonId());
+        String classification = String.valueOf(selectedRadBut.getText());
 
         if(!email.matches(emailPattern)){
             emailEdit.setError("Invalid email entered!");
@@ -77,20 +88,34 @@ public class EmailRegister extends AppCompatActivity {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
+                    progressBar.setVisibility(View.GONE);
                     if(task.isSuccessful()){
-                        progressBar.setVisibility(View.GONE);
                         Intent intent = new Intent(getApplicationContext(), Login.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                         Toast.makeText(EmailRegister.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(EmailRegister.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
 
+        }
+    }
+
+    public void onRadioButtonClicked(View view) {
+        emailEdit = (EditText) findViewById(R.id.loginEdit);
+        passwordEdit = (EditText) findViewById(R.id.editTextPassword);
+        userEdit = (EditText) findViewById(R.id.userEdit);
+        String sEmail = emailEdit.getText().toString();
+        String sPassword = passwordEdit.getText().toString();
+        String sUser = userEdit.getText().toString();
+
+        buttonRegister = (Button) findViewById(R.id.buttonRegister);
+
+        if(!sEmail.matches("") && !sPassword.matches("") && !sUser.matches("")){
+            buttonRegister.setEnabled(true);
         }
     }
 
