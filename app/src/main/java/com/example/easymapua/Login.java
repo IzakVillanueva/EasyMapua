@@ -20,6 +20,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONException;
@@ -34,6 +40,7 @@ public class Login extends AppCompatActivity {
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     FirebaseAuth mAuth;
     FirebaseUser mUser;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +52,15 @@ public class Login extends AppCompatActivity {
         passwordEdit = findViewById(R.id.editTextPassword);
         progressBar = findViewById(R.id.progress);
         buttonReg = findViewById(R.id.buttonRegister);
+
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance("https://easymapuaauth-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this, Register.class));
+                startActivity(new Intent(Login.this, EmailRegister.class));
             }
         });
 
@@ -148,11 +157,34 @@ public class Login extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         progressBar.setVisibility(View.GONE);
-                        finish();
+
+                        Query query = databaseReference.child("Users").orderByChild("email").equalTo(email);
+                        query.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    DataSnapshot userSnap = snapshot.getChildren().iterator().next();
+                                    User user = userSnap.getValue(User.class);
+                                    loggedUser = user.getUsername();
+                                    loggedClass = user.getClassification();
+                                    Toast.makeText(Login.this, "" + loggedClass + loggedUser, Toast.LENGTH_SHORT).show();
+                                }
+                                else{
+                                    Toast.makeText(Login.this, "No existing data", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError error) {
+
+                            }
+                        });
+
                         Intent intent = new Intent(getApplicationContext(), StudentNav.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
-                        Toast.makeText(Login.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                     else{
                         progressBar.setVisibility(View.GONE);
