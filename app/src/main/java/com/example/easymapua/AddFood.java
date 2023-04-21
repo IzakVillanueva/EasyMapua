@@ -48,49 +48,6 @@ public class AddFood extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*if(!store.equals("") && !food.equals("") && !price.equals("")){
-                    prog.setVisibility(View.VISIBLE);
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            String[] field = new String[3];
-                            field[0] = "store";
-                            field[1] = "food";
-                            field[2] = "price";
-                            //Creating array for data
-                            String[] data = new String[3];
-                            data[0] = store;
-                            data[1] = food;
-                            data[2] = price;
-                            PutData putData = new PutData("http://192.168.1.7/LoginRegister/addfood.php", "POST", field, data);
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
-                                    prog.setVisibility(View.GONE);
-                                    String result = putData.getResult();
-                                    if(result.equals("Successfully added food")){
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                        if(Login.loggedClass.equals("Vendor")){
-                                            startActivity(new Intent(getApplicationContext(), VendorNav.class));
-                                            finish();
-                                        }
-                                        else if(Login.loggedClass.equals("Admin")){
-                                            startActivity(new Intent(getApplicationContext(), AdminNav.class));
-                                            finish();
-                                        }
-                                    }
-                                    else{
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
-                }*/
-
                 addFoodToMenu();
             }
         });
@@ -150,9 +107,16 @@ public class AddFood extends AppCompatActivity {
                 public void onComplete(Task<Void> task) {
                     prog.setVisibility(View.GONE);
                     if(task.isSuccessful()){
-                        Intent intent = new Intent(getApplicationContext(), StudentNav.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
+                        if(Login.loggedClass.equals("Vendor")){
+                            Intent intent = new Intent(getApplicationContext(), VendorNav.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                        else if(Login.loggedClass.equals("Admin")){
+                            Intent intent = new Intent(getApplicationContext(), AdminNav.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
                         Toast.makeText(AddFood.this, "Added Food to Menu", Toast.LENGTH_SHORT).show();
                         finish();
                     }
