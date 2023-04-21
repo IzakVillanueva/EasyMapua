@@ -39,7 +39,7 @@ public class AddFood extends AppCompatActivity {
                 String food = String.valueOf(foodT.getText());
                 String price = String.valueOf(priceT.getText());
 
-                if(!store.equals("") && !food.equals("") && !price.equals("")){
+                /*if(!store.equals("") && !food.equals("") && !price.equals("")){
                     prog.setVisibility(View.VISIBLE);
                     Handler handler = new Handler(Looper.getMainLooper());
                     handler.post(new Runnable() {
@@ -80,7 +80,7 @@ public class AddFood extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
 
