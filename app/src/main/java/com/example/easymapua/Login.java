@@ -69,70 +69,6 @@ public class Login extends AppCompatActivity {
                 String username = String.valueOf(userEdit.getText());
                 String password = String.valueOf(passwordEdit.getText());
 
-                /*if(!username.equals("") && !password.equals("")) {
-                    progressBar.setVisibility(View.VISIBLE);
-                    //Start ProgressBar first (Set visibility VISIBLE)
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            //Starting Write and Read data with URL
-                            //Creating array for parameters
-                            String[] field = new String[2];
-                            field[0] = "username";
-                            field[1] = "password";
-                            //Creating array for data
-                            String[] data = new String[2];
-                            data[0] = username;
-                            data[1] = password;
-                            PutData putData = new PutData("http://192.168.1.7/LoginRegister/login.php", "POST", field, data);
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
-                                    progressBar.setVisibility(View.GONE);
-                                    String result = putData.getResult();
-                                    String classification = "";
-                                    String loginMsg = "";
-                                    try {
-                                        JSONObject jsonObject = new JSONObject(result);
-                                        loginMsg = jsonObject.getString("loginMessage");
-                                        classification = jsonObject.getString("classification");
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-                                    if(loginMsg.equals("Login Success")){
-                                        Toast.makeText(getApplicationContext(),loginMsg,Toast.LENGTH_SHORT).show();
-                                        loggedUser = username;
-                                        loggedClass = classification;
-                                        if(classification.equals("Student")){
-                                            startActivity(new Intent(Login.this, StudentNav.class));
-                                            finish();
-                                        }
-                                        else if(classification.equals("Professor")){
-                                            startActivity(new Intent(Login.this, ProfessorNav.class));
-                                            finish();
-                                        }
-                                        else if(classification.equals("Vendor")){
-                                            startActivity(new Intent(Login.this, VendorNav.class));
-                                            finish();
-                                        }
-                                        else if(classification.equals("Admin")){
-                                            startActivity(new Intent(Login.this, AdminNav.class));
-                                            finish();
-                                        }
-                                    }
-                                    else{
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
-                }*/
-
                 performLogin();
             }
         });
@@ -166,7 +102,22 @@ public class Login extends AppCompatActivity {
                                     User user = userSnap.getValue(User.class);
                                     loggedUser = user.getUsername();
                                     loggedClass = user.getClassification();
-                                    Toast.makeText(Login.this, "" + loggedClass + loggedUser, Toast.LENGTH_SHORT).show();
+                                    if(loggedClass.equals("Student")){
+                                        startActivity(new Intent(Login.this, StudentNav.class));
+                                        finish();
+                                    }
+                                    else if(loggedClass.equals("Professor")){
+                                        startActivity(new Intent(Login.this, ProfessorNav.class));
+                                        finish();
+                                    }
+                                    else if(loggedClass.equals("Vendor")){
+                                        startActivity(new Intent(Login.this, VendorNav.class));
+                                        finish();
+                                    }
+                                    else if(loggedClass.equals("Admin")){
+                                        startActivity(new Intent(Login.this, AdminNav.class));
+                                        finish();
+                                    }
                                 }
                                 else{
                                     Toast.makeText(Login.this, "No existing data", Toast.LENGTH_SHORT).show();
@@ -179,9 +130,6 @@ public class Login extends AppCompatActivity {
                             }
                         });
 
-                        Intent intent = new Intent(getApplicationContext(), StudentNav.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
                         Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         finish();
                     }
