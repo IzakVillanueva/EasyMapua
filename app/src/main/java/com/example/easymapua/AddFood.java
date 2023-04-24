@@ -119,6 +119,9 @@ public class AddFood extends AppCompatActivity {
                         Toast.makeText(AddFood.this, "Added Food to Menu", Toast.LENGTH_SHORT).show();
                         finish();
                     }
+                    else{
+                        Toast.makeText(AddFood.this, "Error adding food to menu", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }

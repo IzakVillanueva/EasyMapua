@@ -18,6 +18,8 @@ import android.widget.ProgressBar;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +35,7 @@ public class AddSched extends AppCompatActivity {
     private String date;
     TimePickerDialog timePickerDialog;
     DatabaseReference databaseReference;
-    private long maxIDSched;
+    private long maxIDSched = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -209,6 +211,31 @@ public class AddSched extends AppCompatActivity {
                     endTime,
                     room
             );
+
+            databaseReference.child(String.valueOf(maxIDSched+1))
+                    .setValue(inputSched).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(Task<Void> task) {
+                    progressBar.setVisibility(View.GONE);
+                    if(task.isSuccessful()){
+                        if(Login.loggedClass.equals("Professor")){
+                            Intent intent = new Intent(getApplicationContext(), ProfessorNav.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                        else if(Login.loggedClass.equals("Admin")){
+                            Intent intent = new Intent(getApplicationContext(), AdminNav.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                        Toast.makeText(AddSched.this, "Added Schedule to Database", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                    else{
+                        Toast.makeText(AddSched.this, "Error adding schedule to database", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
         else{
             Toast.makeText(getApplicationContext(), "All fields are required", Toast.LENGTH_SHORT).show();
