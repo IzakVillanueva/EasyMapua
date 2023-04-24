@@ -46,6 +46,7 @@ public class ViewSchedule extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 prog.setVisibility(View.VISIBLE);
+                clearTable();
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
@@ -124,6 +125,7 @@ public class ViewSchedule extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 prog.setVisibility(View.VISIBLE);
+                clearTable();
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
