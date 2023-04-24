@@ -18,7 +18,11 @@ import android.widget.ProgressBar;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class AddSched extends AppCompatActivity {
@@ -29,7 +33,7 @@ public class AddSched extends AppCompatActivity {
     private String date;
     TimePickerDialog timePickerDialog;
     DatabaseReference databaseReference;
-    private long maxIDFood;
+    private long maxIDSched;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,7 @@ public class AddSched extends AppCompatActivity {
         cancel = findViewById(R.id.buttonCancel);
         datePicker = findViewById(R.id.datePicker);
         close = findViewById(R.id.buttonClose);
+        databaseReference = FirebaseDatabase.getInstance("https://easymapuaauth-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Schedule");
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,15 +102,9 @@ public class AddSched extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = String.valueOf(prof.getText());
-                String courseCode = String.valueOf(course.getText());
-                String task = String.valueOf(taskT.getText());
-                String date = String.valueOf(dateT.getText());
-                String startTime = String.valueOf(start.getText());
-                String endTime = String.valueOf(end.getText());
-                String room = String.valueOf(roomT.getText());
+                addSchedToDB();
 
-                if(!name.equals("") && !courseCode.equals("") && !task.equals("") && !date.equals("") && !startTime.equals("") && !endTime.equals("") && !room.equals("")){
+                /*if(!name.equals("") && !courseCode.equals("") && !task.equals("") && !date.equals("") && !startTime.equals("") && !endTime.equals("") && !room.equals("")){
                     progressBar.setVisibility(View.VISIBLE);
                     Handler handler = new Handler(Looper.getMainLooper());
                     handler.post(new Runnable() {
@@ -159,7 +158,7 @@ public class AddSched extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
 
@@ -174,5 +173,47 @@ public class AddSched extends AppCompatActivity {
                 }
             }
         });
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    maxIDSched = (snapshot.getChildrenCount());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
     }
+
+    private void addSchedToDB() {
+        String name = String.valueOf(prof.getText());
+        String courseCode = String.valueOf(course.getText());
+        String task = String.valueOf(taskT.getText());
+        String date = String.valueOf(dateT.getText());
+        String startTime = String.valueOf(start.getText());
+        String endTime = String.valueOf(end.getText());
+        String room = String.valueOf(roomT.getText());
+
+        if(!name.isEmpty() && !courseCode.isEmpty() && !task.isEmpty() && !date.isEmpty() && !startTime.isEmpty() && !endTime.isEmpty() && !room.isEmpty()){
+            progressBar.setVisibility(View.VISIBLE);
+            Schedule inputSched = new Schedule(
+                    name,
+                    courseCode,
+                    task,
+                    date,
+                    startTime,
+                    endTime,
+                    room
+            );
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "All fields are required", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }
