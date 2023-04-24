@@ -29,8 +29,7 @@ public class AddFood extends AppCompatActivity {
     private EditText storeT, foodT, priceT;
     ProgressBar prog;
     DatabaseReference databaseReference;
-    private long maxIDFood;
-
+    private long maxIDFood = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
