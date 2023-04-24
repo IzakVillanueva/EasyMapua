@@ -8,9 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class AdminNav extends AppCompatActivity {
     private Button addFood, addRate, addSc, viewMen, viewRat, viewSc;
     private ImageView ex;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,9 @@ public class AdminNav extends AppCompatActivity {
         ex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mAuth.signOut();
                 startActivity(new Intent(getApplicationContext(), Login.class));
+                finish();
             }
         });
 
