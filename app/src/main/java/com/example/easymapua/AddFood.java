@@ -29,7 +29,7 @@ public class AddFood extends AppCompatActivity {
     private EditText storeT, foodT, priceT;
     ProgressBar prog;
     DatabaseReference databaseReference;
-    long maxIDFood;
+    private long maxIDFood;
 
 
     @Override
