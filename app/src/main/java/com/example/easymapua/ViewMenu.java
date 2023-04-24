@@ -22,7 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -86,7 +85,7 @@ public class ViewMenu extends AppCompatActivity {
 
                                             TextView priceData = new TextView(ViewMenu.this);
                                             priceData.setTextAppearance(getApplicationContext(), R.style.menuTableText);
-                                            priceData.setText("PHP " +  food.getPrice() + ".00");
+                                            priceData.setText(getString(R.string.peso) + food.getPrice() + getString(R.string.doubleZero));
                                             row.addView(priceData);
 
                                             tbl.addView(row);
@@ -143,7 +142,7 @@ public class ViewMenu extends AppCompatActivity {
 
                         TextView priceData = new TextView(ViewMenu.this);
                         priceData.setTextAppearance(getApplicationContext(), R.style.menuTableText);
-                        priceData.setText("PHP " +  data.getPrice() + ".00");
+                        priceData.setText(getString(R.string.peso) + data.getPrice() + getString(R.string.doubleZero));
                         row.addView(priceData);
 
                         tbl.addView(row);
@@ -185,7 +184,7 @@ public class ViewMenu extends AppCompatActivity {
 
                         TextView priceData = new TextView(ViewMenu.this);
                         priceData.setTextAppearance(getApplicationContext(), R.style.menuTableText);
-                        priceData.setText("PHP " +  data.getPrice() + ".00");
+                        priceData.setText(getString(R.string.peso) + data.getPrice() + getString(R.string.doubleZero));
                         row.addView(priceData);
 
                         tbl.addView(row);
