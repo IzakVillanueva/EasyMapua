@@ -15,16 +15,25 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class AddRate extends AppCompatActivity {
     private String[] store = {"Jaymin's Kitchen", "Varda Burgers", "Food Hall"};
     private Button add, cancel;
-    private EditText subjT, msgT;
+    private EditText subjT, msgT, rating;
     private ProgressBar prog;
     private AutoCompleteTextView autoCompleteTextView;
     private ArrayAdapter<String> adapterItems;
     private String storeSelected = "";
+    DatabaseReference databaseReference;
+    private long maxIDRate = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +44,18 @@ public class AddRate extends AppCompatActivity {
         cancel = findViewById(R.id.buttonCancel);
         subjT = findViewById(R.id.editTextSubject);
         msgT = findViewById(R.id.editTextMessage);
+        rating = findViewById(R.id.editTextNumber);
         prog = findViewById(R.id.progressBarRate);
         autoCompleteTextView = findViewById(R.id.autocompleteTextViewRate);
         adapterItems = new ArrayAdapter<String>(this, R.layout.list_item_store, store);
         autoCompleteTextView.setAdapter(adapterItems);
+        databaseReference = FirebaseDatabase.getInstance("https://easymapuaauth-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Ratings");
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String subject = String.valueOf(subjT.getText());
-                String message = String.valueOf(msgT.getText());
-                if(!storeSelected.equals("") && !subject.equals("") && !message.equals("")){
+                addRateToDB();
+                /*if(!storeSelected.equals("") && !subject.equals("") && !message.equals("")){
                     prog.setVisibility(View.VISIBLE);
                     Handler handler = new Handler(Looper.getMainLooper());
                     handler.post(new Runnable() {
@@ -95,7 +105,7 @@ public class AddRate extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
 
@@ -121,5 +131,76 @@ public class AddRate extends AppCompatActivity {
                 storeSelected = parent.getItemAtPosition(position).toString();
             }
         });
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    maxIDRate = (snapshot.getChildrenCount());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void addRateToDB() {
+        String subject = String.valueOf(subjT.getText());
+        String message = String.valueOf(msgT.getText());
+        String rate = String.valueOf(rating.getText());
+
+        if(rate.isEmpty()){
+            rating.setError("Add numerical value to rating");
+        }
+        else if(subject.isEmpty()){
+            subjT.setError("Please add a subject");
+        }
+        else if(message.isEmpty()){
+            msgT.setError("Please add a review");
+        }
+        else{
+            prog.setVisibility(View.VISIBLE);
+            Rating inputRate = new Rating(
+                    Login.loggedUser,
+                    Login.loggedClass,
+                    storeSelected,
+                    subject,
+                    message,
+                    rate
+            );
+
+            databaseReference.child(String.valueOf(maxIDRate+1))
+                    .setValue(inputRate).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(Task<Void> task) {
+                    prog.setVisibility(View.GONE);
+                    if(task.isSuccessful()){
+                        if(Login.loggedClass.equals("Student")){
+                            Intent intent = new Intent(getApplicationContext(), StudentNav.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                        else if(Login.loggedClass.equals("Professor")){
+                            Intent intent = new Intent(getApplicationContext(), ProfessorNav.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                        else if(Login.loggedClass.equals("Admin")){
+                            Intent intent = new Intent(getApplicationContext(), AdminNav.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                        Toast.makeText(AddRate.this, "Added Rating to Database", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                    else{
+                        Toast.makeText(AddRate.this, "Error adding rating to database", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 }
