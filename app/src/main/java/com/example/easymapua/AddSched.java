@@ -105,62 +105,6 @@ public class AddSched extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addSchedToDB();
-
-                /*if(!name.equals("") && !courseCode.equals("") && !task.equals("") && !date.equals("") && !startTime.equals("") && !endTime.equals("") && !room.equals("")){
-                    progressBar.setVisibility(View.VISIBLE);
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            //Starting Write and Read data with URL
-                            //Creating array for parameters
-                            String[] field = new String[7];
-                            field[0] = "professor";
-                            field[1] = "coursecode";
-                            field[2] = "task";
-                            field[3] = "date";
-                            field[4] = "starttime";
-                            field[5] = "endtime";
-                            field[6] = "room";
-                            //Creating array for data
-                            String[] data = new String[7];
-                            data[0] = name;
-                            data[1] = courseCode;
-                            data[2] = task;
-                            data[3] = date;
-                            data[4] = startTime;
-                            data[5] = endTime;
-                            data[6] = room;
-                            PutData putData = new PutData("http://192.168.1.7/LoginRegister/addsched.php", "POST", field, data);
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
-                                    progressBar.setVisibility(View.GONE);
-                                    String result = putData.getResult();
-                                    if(result.equals("Schedule Successfully Added")){
-                                        if(Login.loggedClass.equals("Professor")){
-                                            Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(getApplicationContext(), ProfessorNav.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
-                                        else if(Login.loggedClass.equals("Admin")){
-                                            Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(getApplicationContext(), AdminNav.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
-                                    }
-                                    else{
-                                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
-                }*/
             }
         });
 
