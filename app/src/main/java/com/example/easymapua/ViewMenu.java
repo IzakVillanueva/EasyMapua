@@ -63,7 +63,6 @@ public class ViewMenu extends AppCompatActivity {
                 String item = parent.getItemAtPosition(position).toString();
                 autoCompleteTextView.setAdapter(adapterItems);
                 Handler handler = new Handler(Looper.getMainLooper());
-                Toast.makeText(ViewMenu.this, "No existing data", Toast.LENGTH_SHORT).show();
                 clearTable();
                 dataList.clear();
                 handler.post(new Runnable() {
