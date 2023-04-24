@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class AddSched extends AppCompatActivity {
@@ -27,6 +28,8 @@ public class AddSched extends AppCompatActivity {
     private DatePicker datePicker;
     private String date;
     TimePickerDialog timePickerDialog;
+    DatabaseReference databaseReference;
+    private long maxIDFood;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
