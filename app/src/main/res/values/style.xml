@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="menuTableText">
-        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:fontFamily">exo_2</item>
         <item name="android:textSize">19sp</item>
         <item name="android:background">#FFEFEA</item>
         <item name="android:textColor">#000</item>
+        <item name="android:padding">10dp</item>
     </style>
 
     <style name="userRateTbl" parent="@android:style/Widget.TextView">
-        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:fontFamily">exo_2_thin</item>
         <item name="android:textSize">14sp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">0dp</item>
@@ -16,7 +17,7 @@
     </style>
 
     <style name="subRateTbl" parent="@android:style/Widget.TextView">
-        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:fontFamily">exo_2_semibold</item>
         <item name="android:textSize">19sp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">wrap_content</item>
@@ -25,7 +26,7 @@
     </style>
 
     <style name="msgRateTbl" parent="@android:style/Widget.TextView">
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">exo_2</item>
         <item name="android:textSize">16sp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">wrap_content</item>

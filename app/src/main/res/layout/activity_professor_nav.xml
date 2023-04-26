@@ -9,100 +9,115 @@
 
     <Button
         android:id="@+id/buttonAdd"
-        android:layout_width="220dp"
+        android:layout_width="170dp"
         android:layout_height="67dp"
+        android:layout_marginTop="112dp"
+        android:fontFamily="@font/exo_2_semibold"
         android:text="@string/add_schedule"
+        android:textSize="16sp"
         app:backgroundTint="#454A87"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonRate"
-        android:layout_width="220dp"
+        android:layout_width="170dp"
         android:layout_height="67dp"
+        android:layout_marginTop="188dp"
+        android:fontFamily="@font/exo_2_semibold"
         android:text="@string/add_rating"
+        android:textSize="17sp"
         app:backgroundTint="#454A87"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.295" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonViewSched"
-        android:layout_width="220dp"
+        android:layout_width="170dp"
         android:layout_height="67dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/exo_2_semibold"
         android:text="@string/view_schedule"
+        android:textSize="16sp"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.979"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
+        app:layout_constraintVertical_bias="0.384" />
 
     <Button
         android:id="@+id/buttonViewRating"
-        android:layout_width="220dp"
-        android:layout_height="67dp"
-        android:text="@string/view_ratings"
-        app:backgroundTint="#454A87"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.555" />
-
-    <Button
-        android:id="@+id/buttonViewMenu"
-        android:layout_width="220dp"
+        android:layout_width="170dp"
         android:layout_height="67dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/view_menu"
+        android:fontFamily="@font/exo_2_semibold"
+        android:text="@string/view_ratings"
+        android:textSize="17sp"
         app:backgroundTint="#454A87"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438" />
+        app:layout_constraintVertical_bias="0.277" />
+
+    <Button
+        android:id="@+id/buttonViewMenu"
+        android:layout_width="170dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:fontFamily="@font/exo_2_semibold"
+        android:text="@string/view_menu"
+        android:textSize="17sp"
+        app:backgroundTint="#454A87"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#e2c3bf"
+        android:background="#fe6f61"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="86dp"
-        android:layout_height="53dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615"
         app:srcCompat="@drawable/logoblack" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/economica"
         android:text="@string/professor"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.067"
@@ -112,11 +127,11 @@
 
     <ImageView
         android:id="@+id/imageViewExit"
-        android:layout_width="44dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="30dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintHorizontal_bias="0.933"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logout" />
