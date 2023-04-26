@@ -1,7 +1,9 @@
 package com.example.easymapua;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -31,9 +33,7 @@ public class AdminNav extends AppCompatActivity {
         ex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth.signOut();
-                startActivity(new Intent(getApplicationContext(), Login.class));
-                finish();
+                logOff();
             }
         });
 
@@ -78,5 +78,30 @@ public class AdminNav extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ViewSchedule.class));
             }
         });
+    }
+
+    private void logOff() {
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(this);
+        builder.setMessage("Do you really want to logout?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Action for yes
+                        mAuth.signOut();
+                        startActivity(new Intent(getApplicationContext(), Login.class));
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Action for no
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setTitle("Logout");
+        alertDialog.show();
     }
 }
