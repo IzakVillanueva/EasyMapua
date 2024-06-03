@@ -1,0 +1,1 @@
+A mobile application for Mapua Makati’s cafeteria and an appointment system for professors and students. The app displays the entire menu for the day available in the cafeteria, and both students and professors can add ratings and reviews for each. The entire development process was managed in Android Studio, and Firebase was used for database management.
